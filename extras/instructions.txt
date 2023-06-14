@@ -1,0 +1,59 @@
+=================================
+ADD A SONG
+=================================
+//operation
+mutation($songInput: SongInput!){
+  addSong(songInput: $songInput)
+}
+//values
+{
+  "songInput":
+    {
+        "title": "Billie Jean",
+        "artist": "Michael Jackson",
+        "duration": 295,
+        "genre": "Pop",
+        "release_date": "1982-01-02",
+        "audio_file": "https://example.com/songs/billie_jean.mp3"
+    }
+}
+==================================
+REMOVE A SONG
+==================================
+//operation
+mutation($id: ID!) {
+  removeSong(id: $id) {
+    duration
+    release_date
+  }
+}
+//values
+{
+  "id": <ID in database as a string>,
+}
+==================================
+GET ALL SONGS
+==================================
+//operation
+query{
+  getSongs {
+    id
+    artist
+    duration
+  }
+}
+================================
+GET SONG BY ID
+================================
+//operation
+query($getSongId: ID!) {
+  getSong(id: $getSongId) {
+    id
+    release_date
+    duration
+  }
+}
+//values
+{
+  "id": <ID in database as a string>,
+}
