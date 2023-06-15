@@ -9,7 +9,7 @@ import {
 import SongSchema from "../models/Song";
 
 mongoose.connect(`${process.env.MONGO_URI!}/musics`).then(function () {
-  console.log("Successfully connect to MongoDB...");
+  console.log("Successfully connected to Song Database...");
 });
 
 const resolvers = {
